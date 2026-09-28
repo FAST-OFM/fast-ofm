@@ -1,0 +1,33 @@
+name: Feature proposal
+description: Propose a bounded feature or upstreamable module
+title: "[proposal] "
+labels: [proposal]
+body:
+  - type: input
+    id: feature
+    attributes:
+      label: Existing or proposed feature ID
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and evidence
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Repository and dependency boundary
+    validations:
+      required: true
+  - type: dropdown
+    id: maturity
+    attributes:
+      label: Requested maturity
+      options:
+        - roadmap
+        - experimental-disabled
+        - test-verified
+        - offline-verified
+        - prototype-verified
+    validations:
+      required: true

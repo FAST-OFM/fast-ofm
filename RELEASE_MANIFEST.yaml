@@ -1,0 +1,412 @@
+schema: fast_ofm_release_manifest/v0
+manifest_status: private_release_candidate
+project:
+  name: Fast OFM
+  display_name: Fast OFM
+  publisher: Alexander Fridman
+  original_material_copyright_holder: Alexander Fridman
+  github_organization: FAST-OFM
+  target_release: v0.3.0-prototype.1
+  product_status: research_prototype_not_clinically_validated
+  repository_visibility: private_owner_controlled
+  visibility_change_authorized_for_agent: false
+
+source_freeze:
+  recorded_at: "2026-09-28"
+  openflexure_wsi:
+    engineering_branch: codex/pyramidal-wsi-output
+    commit: a4231aa2538c0c67f306a666011abfd0de68d1db
+    tree: 9f0672f29ed67448d13e0b29c8e0c5e71d40b1ab
+    commit_date: "2026-09-12T20:53:05+04:00"
+    commit_subject: OF-108 stitch disconnected scan zones by local correlation
+    release_target_repository: FAST-OFM/openflexure-wsi
+    release_tag: v0.3.0-prototype.1
+    release_snapshot_history: clean_single_initial_commit
+    upstream:
+      repository: https://gitlab.com/openflexure/openflexure-microscope-server.git
+      branch: v3
+      base_commit: 4aa9ef70403b5e6fd9cd71712f937700947c2609
+      base_tree: 25ecf734e2841dd02c802354184342ef05e23d1d
+      license: GPL-3.0
+    package:
+      python_name: openflexure-microscope-server
+      version: 3.0.0-beta1
+      python: ">=3.11"
+      webapp_name: openflexure-microscope-server-ui
+      webapp_version: 3.0.0-beta1
+      node: ">=26.0.0"
+      javascript_lock: webapp/package-lock.json
+    local_worktree_changes_included: false
+    local_worktree_audit_status: reviewed_in_release_preparation_not_shipped
+
+  controller:
+    engineering_tag: v0.1.2-prototype.1
+    annotated_tag_object: 7daccec1bb2d9a87a8537c54588ef4692a3d78a3
+    commit: e99af08ab0978de217e7f2db34374d70dec85ef3
+    tree: 8e414dba797e45ad2d78569c1f9ad42154294e94
+    commit_date: "2026-09-09T13:04:16+04:00"
+    commit_subject: Preserve live controller runtime snapshot
+    release_target_repository: FAST-OFM/controller
+    release_tag: v0.3.0-prototype.1
+    release_snapshot_history: clean_single_initial_commit
+    package:
+      python_name: scanner-firmware
+      version: 0.1.0
+      python: ">=3.11"
+    license_target:
+      original_software: PolyForm-Noncommercial-1.0.0
+      original_documentation: CC-BY-NC-SA-4.0
+      klipper_derived_material: GPL-3.0-only
+
+  hardware:
+    engineering_tag: v0.1.2-prototype.1
+    annotated_tag_object: 0bfc4c5442296f682f728d35a045633a2b803883
+    commit: e0497a4d03aa3f8e088e15c56b7d7a6197a1d7f8
+    tree: 44e4ca66fb54176e210a773798fe0e18f08fc66a
+    commit_date: "2026-09-09T10:33:26+04:00"
+    commit_subject: Document prototype hardware checkpoint
+    release_target_repository: FAST-OFM/hardware
+    release_tag: v0.3.0-prototype.1
+    release_snapshot_history: clean_single_initial_commit
+    license_target:
+      original_design_documentation: CC-BY-NC-SA-4.0
+      original_software_utilities: PolyForm-Noncommercial-1.0.0
+
+  fast_ofm_core:
+    release_target_repository: FAST-OFM/fast-ofm-core
+    release_tag: v0.1.0-prototype.1
+    release_snapshot_history: clean_single_initial_commit_authorized
+    package:
+      python_name: fast-ofm-core
+      version: 0.1.0.dev0
+      python: ">=3.11"
+    protocol_version: "1.0"
+    license_target:
+      independently_owned_runtime: PolyForm-Noncommercial-1.0.0
+      neutral_protocol_schemas: Apache-2.0
+      documentation: CC-BY-NC-SA-4.0
+    provenance_ledger: PROVENANCE.csv
+    provenance_ledger_sha256: bbd78955ee54bfe075239f5d89ce2531f7df65c5c18af088d05a499fa1ca3e77
+    provenance_source_snapshot:
+      repository: FAST-OFM/openflexure-wsi
+      tag: v0.2.0-prototype.2
+      commit: 20d1e42c6eae6367db1f681a110378d21cdf1568
+    ownership_status: owner_confirmed_2026_09_29
+
+  fast_ofm_stitching_openflexure:
+    release_target_repository: FAST-OFM/fast-ofm-stitching-openflexure
+    release_tag: v0.1.0-prototype.1
+    release_snapshot_history: clean_single_initial_commit_authorized
+    package:
+      python_name: fast-ofm-stitching-openflexure
+      version: 0.1.0.dev0
+      python: ">=3.11"
+    license: LGPL-3.0-only
+    upstream_dependency: openflexure-stitching
+
+  architecture_reference:
+    source_ref: origin/main
+    commit: c2d8e9d35918a319dc8705feaea1b1ee5e3b5d5c
+    tree: 41d5feee99d5be6558df4c61321753ef39bcdb1e
+    commit_date: "2026-08-09T15:17:41+04:00"
+    publication_policy: curated_material_only_not_wholesale_repository_export
+    release_target_repository: FAST-OFM/fast-ofm
+    release_tag: v0.3.0-prototype.1
+
+feature_catalog:
+  index: FEATURE_INDEX.md
+  policy: stable_ids_with_explicit_dependencies_tests_evidence_and_extraction_notes
+  old_private_commit_history_required_for_review: false
+
+observed_prototype_runtime:
+  evidence_date: "2026-09-09"
+  acquisition_mode: stop_and_shoot
+  hardware_camera_trigger_used: false
+  xvs_used: false
+  scanner_sync_used: false
+  stage_reference: operator_confirmed_local_zero_no_verified_homing
+  coordinate_source: commanded_stepper_position_no_encoder
+  compute_host:
+    measured_scan_owner_record: Raspberry_Pi_4
+    current_deployment_owner_record: Raspberry_Pi_5
+    exact_board_os_kernel_recaptured: false
+    matched_pi5_timing_available: false
+    architectural_requirement: replaceable_linux_host_with_validated_camera_and_moonraker_interfaces
+  camera:
+    model: Raspberry Pi HQ Camera
+    sensor: Sony IMX477
+    saved_tile_pixels: [4056, 3040]
+    saved_format: JPEG
+    jpeg_quality: 95
+    chroma_subsampling: disabled
+  motion_controller:
+    board: MKS Robin Mini V2.0
+    mcu_family: STM32F103-family
+    klipper_base_commit: c707dd19214709dc23684b254a68e3bf69e4cfb3
+    runtime_version: v0.13.0-699-gc707dd192-dirty-20260704_130046-pi5
+    printer_config_sha256: 410d20d85e8ee754457d724e87a12b17c1fa9b024ff85ef012eb3a1b6ab63b96
+    moonraker_config_sha256: 3fc189afcb52aba6804900c2e5aad8b50844a7469d7f85dcecc7c982e7003ba0
+    axis_pins:
+      x: {step: PE3, direction: PE2, enable: "!PE4", endstop: "!PA15"}
+      y: {step: PE0, direction: PB9, enable: "!PE1", endstop: "!PA12"}
+      z: {step: PB5, direction: "!PB4", enable: "!PB8", endstop: "!PA11"}
+    illumination_gate_pins_observed_live:
+      green: PA9
+      red: PA10
+      white: PB14
+  arduino_brightness_controller:
+    board: Nano-compatible ATmega328P
+    runtime_config_version: 4
+    pwm_hz: 62500
+    saved_profile: RED150/GREEN150/WHITE255
+    observed_source_sha256: 79d7f1651b2f94870f60343c37f4e7a5c44022ba6df643da4d5177f11c62ade1
+    cached_hex_sha256: c9d3a184668c2a991b1f6abc33a17cb208b7ec090e590d1dac9cbc2b22ede609
+    flash_readback_verified: false
+
+measured_scan_evidence:
+  scan_id: pathologist-spiral-15mm-4k-simrg-20260909_0001
+  scan_id_geometry_note: "15mm denotes the adaptive planner diameter limit, not a completed 15x15 mm rectangle"
+  planner_center_radius_mm: 7.5
+  retained_field_centres_um:
+    x: [-5505, 3303]
+    y: [-6600, 6600]
+    span: [8808, 13200]
+  calibrated_field_span_um: [1300.1106756254042, 979.2749670634746]
+  retained_image_footprint_mm: [10.108110675625405, 14.179274967063475]
+  retained_image_footprint_note: "axis-aligned bounding footprint of retained fields; not contiguous rectangular coverage"
+  visited_fields: 132
+  saved_fields: 97
+  background_skipped_fields: 35
+  rg_autofocus_saved_fields: 30
+  predicted_z_saved_fields: 67
+  white_autofocus_fallbacks: 0
+  acquisition_seconds: 572
+  output:
+    preferred_release_format: pyramidal_ome_bigtiff
+    qupath_verified: true
+
+performance_evidence:
+  accepted_physical_scan:
+    geometry: adaptive_spiral_7_5_mm_centre_limit_retained_bounding_footprint_10_108x14_179_mm
+    acquisition_seconds: 572
+    classification: measured
+  measured_6x14_stop_and_shoot:
+    addressed_positions: 84
+    acquisition_seconds: 294.6
+    classification: measured
+  planned_14x18_acquisition:
+    target_addressed_positions: 252
+    planned_bounding_footprint_mm: [15.6131, 15.0043]
+    seconds: 883.8
+    display: approximately_14.7_minutes
+    classification: direct_position_count_extrapolation_from_measured_6x14_run
+  stitching_91_tile_4k:
+    input_extent_mm: [10.1081, 10.0543]
+    workers: 3
+    ram_cache_mib: 4096
+    cache_state: warm_full_correlation_cache
+    before_seconds: 180.41
+    optimized_seconds: 150.28
+    classification: measured_on_x86_server
+    storage: SATA_Samsung_850_not_NVMe
+    maximum_output_channel_delta: 0
+    comparison_scope: pre_edge_preservation_matched_timing_ab
+  edge_preservation_replay_91_tile_4k:
+    registration_pairs_calculated: 158
+    registration_pairs_used: 157
+    output_pixels: [33104, 29126]
+    pyramid_levels: 8
+    output_size_bytes: 2552884544
+    workers: 3
+    ram_cache_mib: 4096
+    wall_seconds: 311.81
+    maximum_rss_kib: 3989772
+    swap_used: false
+    changed_pixels_vs_pre_fix: 71928
+    total_pixels: 964187104
+    changed_pixel_fraction: 0.00007459962874591608
+    changed_channels_vs_pre_fix: 214088
+    total_channels: 2892561312
+    changed_channel_fraction: 0.00007401329718123535
+    mean_absolute_channel_delta: 0.015316291764051637
+    maximum_absolute_channel_delta: 255
+    output_sha256: 7919eb680a2e9a76668f8913f750eb218d8f8c5b9ff354b9c8f7693e78b83c62
+    storage: external_FAT_HDD_validation_not_timing_baseline
+    classification: correctness_replay_after_full_edge_preservation_fix
+  planned_approximately_15x15_mm_stitching:
+    planned_bounding_footprint_mm: [15.6131, 15.0043]
+    footprint_area_scale_factor: 2.3051
+    warm_seconds: 346.4
+    first_cold_seconds: 486
+    measured_correlation_seconds: 46.65
+    measured_pair_count: 158
+    planned_pair_count: 472
+    classification: extrapolated_from_91_tile_server_benchmark
+  publication_rule: Never combine extrapolated capture and stitch times into a measured end-to-end claim.
+
+source_validation:
+  recorded_at: "2026-09-28"
+  core_source_x86_64:
+    python_version: 3.11.9
+    native_extension_loaded: false
+    result:
+      passed: 397
+      skipped: 55
+      failed: 0
+      seconds: 7.90
+  core_installed_wheel_x86_64:
+    python_version: 3.11.9
+    native_extension_loaded: true
+    result:
+      passed: 452
+      failed: 0
+      seconds: 4.13
+  core_installed_package_arm64:
+    base_image: python:3.11-bookworm
+    base_digest: sha256:b99029c95d3d37fb1e4e76d287f7984373dca77c665885986e31b2c95260c13c
+    execution: qemu_user_emulation
+    cpu_limit: 3
+    memory_limit_mib: 4096
+    native_extension_loaded: true
+    result:
+      passed: 452
+      failed: 0
+      seconds: 64.65
+  stitching_worker_x86_64:
+    result:
+      passed: 18
+      failed: 0
+      seconds: 0.89
+    package_artifacts:
+      wheel_sha256: 6cc4abb187b8a7b833f61f19d52b7625ecec634932b06b50bee83baef509ee05
+      sdist_sha256: 2ecbf1502ef924ba98a3460d568854648161149db75b35b6576872486fc625f1
+      installed_cli_smoke: passed
+  synthetic_public_replay_arm64_qemu:
+    input: four_generated_512x512_rgb_tiles_no_specimen_data
+    libvips_version: 8.18.6
+    output_pixels: [768, 768]
+    pyramid_levels: 2
+    output_size_bytes: 1859598
+    workers: 3
+    ram_cache_mib: 512
+    wall_seconds_including_emulation_and_container_startup: 72.76
+    level_0_maximum_absolute_pixel_difference: 0
+    level_0_mean_absolute_pixel_difference: 0.0
+    outer_edges_preserved: true
+    output_sha256: b4fbb029def60e808aad0f8af20c898e13b52a971680e9ae076910026c0edb3f
+    qupath_validation:
+      version: 0.5.1
+      server: BioFormatsImageServer
+      detected_levels: 2
+      detected_downsamples: [1.0, 2.0]
+    installed_final_wheel_reproduced_output_sha256: true
+  gpl_adapter_standalone_x86_64:
+    python_version: 3.13.15
+    base_image: python:3.13-bookworm
+    base_digest: sha256:227b6570d6ee07061ae6ca2eb04dedfb6d2b34045835f343065b9869e4d427ea
+    cpu_limit: 3
+    memory_limit_mib: 4096
+    result:
+      passed: 1398
+      skipped: 4
+      expected_xfailed: 3
+      failed: 0
+      pytest_seconds: 184.24
+  gpl_adapter_with_core_x86_64:
+    python_version: 3.13.15
+    base_image: python:3.13-bookworm
+    base_digest: sha256:227b6570d6ee07061ae6ca2eb04dedfb6d2b34045835f343065b9869e4d427ea
+    cpu_limit: 3
+    memory_limit_mib: 4096
+    result:
+      passed: 1705
+      skipped: 0
+      expected_xfailed: 3
+      failed: 0
+      pytest_seconds: 277.17
+  noneditable_wheel_e2e:
+    installed_from_site_packages: true
+    cpu_limit: 3
+    memory_limit_mib: 4096
+    existing_ome_tiff_in_input_directory: true
+    wall_seconds: 5.89
+    peak_rss_kib: 365392
+    swap_used: false
+    output_pixels: [4068, 5624]
+    output_size_bytes: 64782770
+    output_sha256: c32028bf642eabd17e4744fca470c36cfeb313e49e03719b81477c792333f327
+    reference_maximum_absolute_pixel_difference: 0
+    reference_mean_absolute_pixel_difference: 0
+
+licensing_validation:
+  model: mixed_noncommercial_and_mandatory_gpl
+  reuse_specification: "3.3"
+  complete_file_maps:
+    - .github
+    - fast-ofm
+    - openflexure-wsi
+    - controller
+    - hardware
+    - fast-ofm-core
+    - fast-ofm-stitching-openflexure
+  openflexure_combined_work: GPL-3.0-only
+  superseded_private_refs_removed: true
+  private_archive_directory: fast-ofm-private-archive/2026-09-28-prototype.1
+  current_private_archive_directory: fast-ofm-private-archive/2026-09-28-v0.2.0-prototype.2-current
+  current_private_archive_checksums: fast-ofm-private-archive/2026-09-28-v0.2.0-prototype.2-current/CHECKSUMS.sha256
+
+superseded_private_candidate:
+  finalized_at: "2026-09-28"
+  tag: v0.2.0-prototype.2
+  visibility: private_owner_controlled
+  repositories:
+    fast_ofm:
+      repository: FAST-OFM/fast-ofm
+      commit: 9101ac658c30997464b72888db5b6b722c2474ec
+      tree: cd57153d25590f94e40ec79d5318c40922e598d9
+      annotated_tag_object: 6cbb9c1a5f39906781c78b399a51c1105dd24be7
+      release: https://github.com/FAST-OFM/fast-ofm/releases/tag/v0.2.0-prototype.2
+      release_id: 397966908
+      successful_ci_runs: [36402526845, 36402530912]
+    openflexure_wsi:
+      repository: FAST-OFM/openflexure-wsi
+      commit: 20d1e42c6eae6367db1f681a110378d21cdf1568
+      tree: b79ff8ae322916eac68e6fc671c026adaeccb50d
+      annotated_tag_object: 1297f6ed3ceb671bbbbe01a050dcc008fcc2cfba
+      release: https://github.com/FAST-OFM/openflexure-wsi/releases/tag/v0.2.0-prototype.2
+      release_id: 397966976
+      successful_ci_runs: [36401185899, 36401190244]
+    controller:
+      repository: FAST-OFM/controller
+      commit: 2ad152d415d438698811145f1ab03952c9736a17
+      tree: 31cccb546f7b6222a619ed1412597cd66a90d0e8
+      annotated_tag_object: 2e3b8530cb392715209aabe572f164d79bf488f0
+      release: https://github.com/FAST-OFM/controller/releases/tag/v0.2.0-prototype.2
+      release_id: 397967033
+      successful_ci_runs: [36401213033, 36401216956]
+    hardware:
+      repository: FAST-OFM/hardware
+      commit: eb5bb143bd13ea496b05b98be0a9a171d305e70c
+      tree: 8b0e6e2d93ccb2320f4efd24e0065285335bbf66
+      annotated_tag_object: fed21b2baf9119198373c498b20e635fc8657cf4
+      release: https://github.com/FAST-OFM/hardware/releases/tag/v0.2.0-prototype.2
+      release_id: 397967102
+      successful_ci_runs: [36401237274, 36401241540]
+
+resolved_release_questions:
+  - id: branding_restore
+    resolution: OpenFlexure identity and attribution are retained; the retired private name is absent from all release trees and metadata.
+  - id: white_gate_truth
+    resolution: Observed live PB14 is the accepted prototype profile; PB13 remains labelled as a legacy unverified candidate.
+  - id: arduino_version_truth
+    resolution: Deployed Arduino v4 is preserved as the accepted reference; later candidates are separated and do not define the release claim.
+  - id: public_snapshot_sanitization
+    resolution: Release trees were rebuilt without prior Git history and passed retired-name, private-path, credential-pattern and unexpected-generated-artifact scans.
+
+deferred_validation:
+  - id: pi_platform_identity
+    description: The owner records the measured scan on Raspberry Pi 4 and the current deployment on Raspberry Pi 5, but exact board, OS image and kernel were unavailable for recapture and no matched Pi 5 timing exists; ARM64 Debian/Python validation is recorded separately and is not represented as Raspberry Pi OS validation.
+  - id: specimen_replay_fixture
+    description: No specimen imagery is shipped in this source-only release candidate; a privacy-reviewed image replay dataset and derived public figures remain a later publication task.
+  - id: bounded_hardware_smoke_test
+    description: Requires an owner-present hardware session and is not automated or implied by source validation.

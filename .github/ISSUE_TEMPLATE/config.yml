@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: OpenFlexure community support
+    url: https://openflexure.discourse.group/
+    about: Use the OpenFlexure forum for general upstream microscope questions.

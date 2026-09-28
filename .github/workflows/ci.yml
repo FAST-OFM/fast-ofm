@@ -1,0 +1,42 @@
+name: Documentation validation
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  documentation:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip pyyaml reuse==5.1.1
+      - name: Verify file-level licensing
+        run: reuse lint
+      - name: Parse release metadata and verify local Markdown links
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          from urllib.parse import unquote
+          import yaml
+
+          yaml.safe_load(Path("RELEASE_MANIFEST.yaml").read_text())
+          yaml.safe_load(Path("CITATION.cff").read_text())
+          missing = []
+          for document in Path(".").glob("*.md"):
+              for target in re.findall(r"\[[^]]*\]\(([^)]+)\)", document.read_text()):
+                  target = target.split("#", 1)[0]
+                  if not target or "://" in target or target.startswith("mailto:"):
+                      continue
+                  resolved = document.parent / unquote(target)
+                  if not resolved.exists():
+                      missing.append(f"{document}: {target}")
+          if missing:
+              raise SystemExit("Missing local links:\n" + "\n".join(missing))
+          PY
